@@ -11,29 +11,32 @@
 <body>  
 <div id="form">
     <p id="header">Book Your Next Destination</p>
+    <p id="welcomeMessage"></p>
     <div id="user-info">
     <div class="input-box">
 <label for="name">Full Name*</label>
-<input type="text" name="fullName" placeholder="Enter Your Name" required>
+<input type="text" id="fullName" placeholder="Enter Your Name" required>
 </div>
 <div class="input-box">
+<p id="validationError">
+</p>    
 <label for="email">Email Address*</label>
-<input type="email" name="email" placeholder="example@gmail.com" required>
+<input type="email" id="email" placeholder="example@gmail.com" required>
 </div>
 <div class="input-box">
-<label >Select Tour Package* </label>
-    <select class="option" required>
-        <option>Select an option</option>
+<label id="packageLabel">Select Tour Package* </label>
+    <select id="selectPackage" class="option" required>
+        <option id="firstOption">Select an option</option>
         <option value="Goa">Goa</option>
     </select>
     </div>
     <div class="input-box">
 <label for="arrivalDate">Arrival Date*</label>
-<input type="date" name="arrivalDate" required>
+<input type="date" id="arrivalDate" required>
 </div>
 
 <div class="input-box">
-<label for="features">Features*</label>
+<label for="features">Features*</label><p id="featuresSelection"></p>
 <div class="feature-box">
 <input class="features" type="checkbox" name="boarding">
 <label for="boarding">Boarding</label><br> </div>
@@ -47,7 +50,7 @@
 </div>
 <div class="input-box">
     <label>Number of Guests*</label>
-    <input type="number" placeholder="e.g. 2" name="numberOfGuests" min="1" required>
+    <input type="number" placeholder="e.g. 2" id="numberOfGuests" min="1" required>
     </div>
 <div class="input-box discount">
 <label for="discount code">Discount Code</label>
@@ -56,15 +59,89 @@
 <div class="input-box terms">
 <label for="terms">Terms and Conditions*</label><br>
 <div class="feature-box">
-<input class="features" type="checkbox" name="terms" required>
+<input class="features" type="checkbox" id="terms" required>
 <label for="agreement">I Agree </label>
 </div>
+<p id="agreement"></p>
 </div>
 </div>
 <div id="btn">
 <span>* is required</span>
-<button type="submit">Reserve</button>
+<button type="submit" onclick="validate()">Reserve</button>
 </div>
 </div>
+<script>
+function validate(){
+    let valid=true;
+    let isValidFeatures=false;
+    let email = document.getElementById("email");
+    let format = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let fullName = document.getElementById("fullName");
+    let arrivalDate= document.getElementById("arrivalDate");
+    let numberOfGuests= document.getElementById("numberOfGuests");
+    let terms= document.getElementById("terms");
+    let checkboxes = document.querySelectorAll('.features');
+    let featureBox = document.querySelector('.input-box');
+    let FullName = document.getElementById("fullName").value;
+
+    if (format.test(email.value)) {
+        email.style.borderColor = "";
+    } else {
+        email.placeholder = "Enter a valid email";
+        email.style.borderColor = "red";
+        valid=false;
+    }
+
+    if(!fullName.value.trim()){
+        valid=false;
+        fullName.style.borderColor="red";
+    }
+    else{
+        fullName.style.borderColor = "";
+    }
+    
+    if(!arrivalDate.value){
+        valid=false;
+        arrivalDate.style.borderColor="red";
+    }
+    else{
+        arrivalDate.style.borderColor = "";
+    }
+
+    if(!numberOfGuests.value){
+        valid=false;
+        numberOfGuests.style.borderColor="red";
+    }
+    else{
+        numberOfGuests.style.borderColor = "";
+    }
+
+    if(!terms.checked){
+        valid=false;
+        document.getElementById("agreement").innerHTML="Agree to complete your submittion";
+    }
+    else{
+        document.getElementById("agreement").innerHTML="";
+    }
+
+    
+    checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            isValidFeatures = true;
+        }
+    });
+    if (!isValidFeatures) {
+        document.getElementById("featuresSelection").innerHTML = "select one at least";
+    } else {
+        document.getElementById("featuresSelection").innerHTML = "";
+    }
+if(valid && isValidFeatures){
+    document.getElementById("welcomeMessage").innerHTML = "Thanks " + FullName + "! Your request submitted successfully.";
+}
+else{
+    document.getElementById("welcomeMessage").innerHTML = "";
+}   
+}
+</script>
 </body> 
 </html>
