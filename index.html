@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+ 
+<body>  
+<div id="form">
+    <p id="header">Book Your Next Destination</p>
+    <div id="user-info">
+    <div class="input-box">
+<label for="name">Full Name*</label>
+<input type="text" name="fullName" placeholder="Enter Your Name" required>
+</div>
+<div class="input-box">
+<label for="email">Email Address*</label>
+<input type="email" name="email" placeholder="example@gmail.com" required>
+</div>
+<div class="input-box">
+<label >Select Tour Package* </label>
+    <select class="option" required>
+        <option>Select an option</option>
+        <option value="Goa">Goa</option>
+    </select>
+    </div>
+    <div class="input-box">
+<label for="arrivalDate">Arrival Date*</label>
+<input type="date" name="arrivalDate" required>
+</div>
+
+<div class="input-box">
+<label for="features">Features*</label>
+<div class="feature-box">
+<input class="features" type="checkbox" name="boarding">
+<label for="boarding">Boarding</label><br> </div>
+<div class="feature-box">
+<input class="features" type="checkbox" name="fooding">
+<label for="fooding">Fooding</label><br></div>
+<div class="feature-box">
+<input class="features" type="checkbox" name="sight seeing">
+<label for="sight seeing">Sight Seeing</label>
+</div>
+</div>
+<div class="input-box">
+    <label>Number of Guests*</label>
+    <input type="number" placeholder="e.g. 2" name="numberOfGuests" min="1" required>
+    </div>
+<div class="input-box discount">
+<label for="discount code">Discount Code</label>
+<input type="text" placeholder="123CODE" name="discount code">
+    </div>
+<div class="input-box terms">
+<label for="terms">Terms and Conditions*</label><br>
+<div class="feature-box">
+<input class="features" type="checkbox" name="terms" required>
+<label for="agreement">I Agree </label>
+</div>
+</div>
+</div>
+<div id="btn">
+<span>* is required</span>
+<button type="submit">Reserve</button>
+</div>
+</div>
+</body> 
+</html>
