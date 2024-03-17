@@ -11,7 +11,7 @@ body{
     background: linear-gradient(135deg,#71b7e6,#9b59b6);
 }
 #header{
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 600;
 }
 #header::before{
@@ -80,6 +80,16 @@ font-size: smaller;
 margin-top: 25px;
 }
 
+#validationError, #featuresSelection{
+    font-size: smaller;
+    color: red;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+#agreement{
+    font-size: smaller;
+    color: red;
+}
 
 @media screen and (min-width: 768px) {
 .input-box {
@@ -116,5 +126,7 @@ button{
 .option{
  margin-right: 40px;
 }
-
+#header{
+    font-size: 25px;
+}
 }
