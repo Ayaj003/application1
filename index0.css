@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  font-family: "Poppins";
+  background-color: rgb(86, 158, 230);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+#header {
+  font-size: 25px;
+  font-weight: 600;
+}
+#header::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  border-radius: 30px;
+  margin-top: 45px;
+}
+
+#form {
+  background-color: #fff;
+  padding: 25px 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#user-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+input {
+  outline: 0;
+  border-width: 0 0 2px;
+}
+input:not(.features) {
+  width: 74vw;
+  margin-top: 5px;
+}
+
+.input-box {
+  width: 200px;
+  margin: 15px 0px 7px 0px;
+}
+
+button {
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  border-radius: 20px;
+  color: #fff;
+  border: 0;
+  padding: 10px 25px;
+  margin-top: 20px;
+}
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.option {
+  margin-top: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 5px;
+  color: grey;
+}
+.option:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+span {
+  color: red;
+  font-size: smaller;
+  margin-top: 25px;
+}
+
+#validationError, #featuresSelection {
+  font-size: smaller;
+  color: red;
+  margin: 0px;
+}
+
+#agreement {
+  font-size: smaller;
+  color: red;
+}
+
+@media screen and (min-width: 768px) {
+  .input-box {
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(50% - 20px);
+  }
+  #form {
+    height: 610px;
+    width: 700px;
+    padding-left: 60px;
+  }
+  input:not(.features) {
+    width: 20vw;
+  }
+  .input-box {
+    margin: 10px 0px 5px 0px;
+  }
+  .feature-box {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+  }
+  .terms {
+    margin-top: -52px;
+  }
+  button {
+    margin-right: 40px;
+  }
+  #user-info {
+    margin-top: 40px;
+  }
+  .option {
+    margin-right: 40px;
+  }
+  #header {
+    font-size: 25px;
+  }
+}/*# sourceMappingURL=index0.css.map */
